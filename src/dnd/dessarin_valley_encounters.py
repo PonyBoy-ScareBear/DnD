@@ -58,23 +58,17 @@ def dessarin_valley_encounter(encounter_type: str) -> pd.DataFrame():
     Returns:
         dv_encounter (pd.DataFrame()): Pandas DataFrame with columns 'roll' and 'encounter' with a single row populated.
     """
-    encounter_occurrence = dice_roller.single_roll(20)
-    if encounter_occurrence < 18:
-        dv_encounter = pd.DataFrame()
-        dv_encounter['roll'] = 9999
-        dv_encounter['encounter'] = 'NO ENCOUNTER OCCURRED'
+    d12 = dice_roller.single_roll(12)
+    d8 = dice_roller.single_roll(8)
+    encounter_roll = d12 + d8
+    if encounter_type == 'early day':
+        dv_encounter = dessarin_valley_early_day[dessarin_valley_early_day['roll'] == encounter_roll]
+    elif encounter_type == 'early night':
+        dv_encounter = dessarin_valley_early_night[dessarin_valley_early_night['roll'] == encounter_roll]
+    elif encounter_type == 'late day':
+        dv_encounter = dessarin_valley_late_day[dessarin_valley_late_day['roll'] == encounter_roll]
+    elif encounter_type == 'late night':
+        dv_encounter = dessarin_valley_late_night[dessarin_valley_late_night['roll'] == encounter_roll]
     else:
-        d12 = dice_roller.single_roll(12)
-        d8 = dice_roller.single_roll(8)
-        encounter_roll = d12 + d8
-        if encounter_type == 'early day':
-            dv_encounter = dessarin_valley_early_day[dessarin_valley_early_day['roll'] == encounter_roll]
-        elif encounter_type == 'early night':
-            dv_encounter = dessarin_valley_early_night[dessarin_valley_early_night['roll'] == encounter_roll]
-        elif encounter_type == 'late day':
-            dv_encounter = dessarin_valley_late_day[dessarin_valley_late_day['roll'] == encounter_roll]
-        elif encounter_type == 'late night':
-            dv_encounter = dessarin_valley_late_night[dessarin_valley_late_night['roll'] == encounter_roll]
-        else:
-            dv_encounter = dessarin_valley_river[dessarin_valley_river['roll'] == encounter_roll]
+        dv_encounter = dessarin_valley_river[dessarin_valley_river['roll'] == encounter_roll]
     return dv_encounter
