@@ -1,4 +1,4 @@
-def lvl_calc(xp: int) -> int:
+def lvl_calc(xp: int = 0) -> int:
     if xp < 300:
         level = 1
     elif xp < 900:
@@ -42,7 +42,7 @@ def lvl_calc(xp: int) -> int:
     return level
 
 
-def prof_calc(xp: int) -> int:
+def prof_calc(xp: int = 0) -> int:
     if xp < 300:
         proficiency_bonus = 2
     elif xp < 900:
