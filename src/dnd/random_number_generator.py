@@ -10,5 +10,5 @@ def rand_int_gen(number_out_of: int = 20) -> int:
     Returns:
         int: Random number from one to whatever was specified.
     """
-    integer = random.randint(1,number_out_of)
+    integer = random.randint(1, number_out_of)
     return number_out_of, integer
