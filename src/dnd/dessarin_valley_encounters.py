@@ -1,6 +1,5 @@
 import pandas as pd
 import dice_roller
-from dnd.dice_roller import single_roll
 
 
 # Early Travel Day
