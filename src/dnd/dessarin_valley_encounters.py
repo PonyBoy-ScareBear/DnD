@@ -1,4 +1,5 @@
 import pandas as pd
+import dice_roller
 
 
 # Early Travel Day
@@ -49,25 +50,32 @@ dessarin_valley_river['encounter'] = [
     '1d4 merrow', '2d4 ghouls', '2d4 ghouls', '1 water elemental', '1 water elemental']
 
 
-def dessarin_valley_encounter(encounter_type: str, encounter_roll: int):
+def dessarin_valley_encounter(encounter_type):
     """Generates random encounter in Dessarin Valley
 
+    'ed', 'en', 'ld', 'ln', 'r' respectively stand for...
+    'early day', 'early night', 'late day', 'late night', 'river'
+
     Args:
-        encounter_type (str): 'early day', 'early night', 'late day', 'late night', or 'river'
+        encounter_type (str): 'ed', 'en', 'ld', 'ln', 'r'
         encounter_roll (int): 1d12 + 1d8
 
     Returns:
         dv_encounter (pd.DataFrame()): Pandas DataFrame with columns 'roll' and 'encounter' with a single row populated.
     """
-    if encounter_type == 'early day':
+    d12 = dice_roller.single_roll(12)
+    d8 = dice_roller.single_roll(8)
+    encounter_roll = d12 + d8
+
+    if encounter_type == 'ed':
         dv_encounter = dessarin_valley_early_day[dessarin_valley_early_day['roll'] == encounter_roll]
-    elif encounter_type == 'early night':
+    elif encounter_type == 'en':
         dv_encounter = dessarin_valley_early_night[dessarin_valley_early_night['roll'] == encounter_roll]
-    elif encounter_type == 'late day':
+    elif encounter_type == 'ld':
         dv_encounter = dessarin_valley_late_day[dessarin_valley_late_day['roll'] == encounter_roll]
-    elif encounter_type == 'late night':
+    elif encounter_type == 'ln':
         dv_encounter = dessarin_valley_late_night[dessarin_valley_late_night['roll'] == encounter_roll]
-    elif encounter_type == 'river':
+    elif encounter_type == 'r':
         dv_encounter = dessarin_valley_river[dessarin_valley_river['roll'] == encounter_roll]
     else:
         print('Something went wrong')
