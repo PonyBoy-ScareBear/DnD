@@ -5,7 +5,7 @@ def lvl_calc(xp: int = 0) -> int:
         xp (int, optional): Experience Points. Defaults to 0.
 
     Returns:
-        level (int): Level
+        int: Level
     """
     if xp < 300 and xp >= 0:
         level = 1
@@ -57,7 +57,7 @@ def prof_calc(xp: int = 0) -> int:
         xp (int, optional): Experience Points. Defaults to 0.
 
     Returns:
-        prof_bonus (int): Proficiency Bonus.
+        int: Proficiency Bonus.
     """
     if xp < 300:
         proficiency_bonus = 2
