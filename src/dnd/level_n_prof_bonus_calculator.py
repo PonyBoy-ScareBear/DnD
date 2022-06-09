@@ -1,4 +1,12 @@
 def lvl_calc(xp: int = 0) -> int:
+    """Calculates level using experience points.
+
+    Args:
+        xp (int, optional): Experience Points. Defaults to 0.
+
+    Returns:
+        level (int): Level
+    """
     if xp < 300:
         level = 1
     elif xp < 900:
