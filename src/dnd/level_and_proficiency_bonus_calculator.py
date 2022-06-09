@@ -7,7 +7,7 @@ def lvl_calc(xp: int = 0) -> int:
     Returns:
         level (int): Level
     """
-    if xp < 300:
+    if xp < 300 and xp >= 0:
         level = 1
     elif xp < 900:
         level = 2
