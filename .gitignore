@@ -1,0 +1,27 @@
+# non-source Python files
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+
+# IDE
+.idea/
+.vscode/
+
+# environment management
+.python-version
+*.venv
+
+# tests, builds, docs, etc.
+.pytest_cache/
+.coverage
+dist/
+docs/_build/
+
+# data files
+*.sqlite
+*.tsv
+*.xml
+*.csv
+*.ipynb
+scratch*.py
