@@ -1,7 +1,7 @@
 import random
 
 
-def rand_int_gen(number_out_of: int = 20) -> int:
+def single_roll(type_of_dice: int = 20) -> int:
     """Generates random number from range of numbers.
 
     Args:
@@ -10,5 +10,9 @@ def rand_int_gen(number_out_of: int = 20) -> int:
     Returns:
         int: Random number from one to whatever was specified.
     """
-    integer = random.randint(1, number_out_of)
-    return number_out_of, integer
+    roll = random.randint(1, type_of_dice)
+    return roll
+
+# def multiple_rolls(number_of_rolls: int, type_of_dice: int = 6) -> list[int]:
+#     for roll in range(number_of_rolls):
+#         print(roll)
